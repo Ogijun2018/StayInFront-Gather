@@ -29,7 +29,7 @@ class WindowController: NSWindowController {
         }
         // MARK: setting window
         guard let window else { return }
-        window.title = "Gather(StayInWindow)"
+        window.title = "Gather - StayInFront"
         window.contentView?.addSubview(webView)
         window.level = .floating
     }
