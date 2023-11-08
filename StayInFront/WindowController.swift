@@ -12,11 +12,13 @@ class WindowController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
+
         // MARK: setting closure
         let appDelegate = NSApp.delegate as? AppDelegate
         appDelegate?.toggleMenuHandler = { [weak self] in
             self?.changeWindowLebel()
         }
+
         // MARK: setting webView
         let webView = WKWebView(frame: self.window!.contentView!.bounds)
         webView.autoresizingMask = [.width, .height]
@@ -27,6 +29,7 @@ class WindowController: NSWindowController {
             let request = URLRequest(url: url)
             webView.load(request)
         }
+
         // MARK: setting window
         guard let window else { return }
         window.title = "Gather - StayInFront"
