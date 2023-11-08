@@ -10,11 +10,16 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    
-    @IBOutlet weak var stayInFrontMenu: NSMenuItem!
+    var toggleMenuHandler: (() -> Void)?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        let stayInFrontMenu = NSMenuItem(title: "Stay in Front", action: #selector(menuClicked), keyEquivalent: "stay in front")
+        stayInFrontMenu.target = self
+        stayInFrontMenu.state = .on
+
+        if let fileMenu = NSApp.menu?.items.first(where: {$0.title == "Window" })?.submenu {
+            fileMenu.addItem(stayInFrontMenu)
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -27,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func menuClicked(_ sender: NSMenuItem) {
         sender.state = sender.state == .on ? .off : .on
-        NotificationCenter.default.post(name: .init("StayInFront"), object: nil)
+        toggleMenuHandler?()
     }
 }
 
