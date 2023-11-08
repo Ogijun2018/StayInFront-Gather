@@ -14,6 +14,7 @@
 		B8BDC34F2AFB232D0003EECD /* StayInFrontTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDC34E2AFB232D0003EECD /* StayInFrontTests.swift */; };
 		B8BDC3592AFB232D0003EECD /* StayInFrontUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDC3582AFB232D0003EECD /* StayInFrontUITests.swift */; };
 		B8BDC35B2AFB232D0003EECD /* StayInFrontUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDC35A2AFB232D0003EECD /* StayInFrontUITestsLaunchTests.swift */; };
+		B8BDC3682AFB25300003EECD /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDC3672AFB25300003EECD /* WindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		B8BDC3542AFB232D0003EECD /* StayInFrontUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StayInFrontUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BDC3582AFB232D0003EECD /* StayInFrontUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StayInFrontUITests.swift; sourceTree = "<group>"; };
 		B8BDC35A2AFB232D0003EECD /* StayInFrontUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StayInFrontUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B8BDC3672AFB25300003EECD /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		B8BDC3692AFB336B0003EECD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +98,12 @@
 		B8BDC33B2AFB23270003EECD /* StayInFront */ = {
 			isa = PBXGroup;
 			children = (
+				B8BDC3692AFB336B0003EECD /* Info.plist */,
 				B8BDC33C2AFB23270003EECD /* AppDelegate.swift */,
 				B8BDC33E2AFB23270003EECD /* ViewController.swift */,
 				B8BDC3402AFB232D0003EECD /* Assets.xcassets */,
 				B8BDC3422AFB232D0003EECD /* Main.storyboard */,
+				B8BDC3672AFB25300003EECD /* WindowController.swift */,
 				B8BDC3452AFB232D0003EECD /* StayInFront.entitlements */,
 			);
 			path = StayInFront;
@@ -252,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8BDC33F2AFB23270003EECD /* ViewController.swift in Sources */,
+				B8BDC3682AFB25300003EECD /* WindowController.swift in Sources */,
 				B8BDC33D2AFB23270003EECD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = StayInFront/StayInFront.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -425,8 +432,11 @@
 				DEVELOPMENT_TEAM = VZBG2DMPDR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StayInFront/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires camera";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires microphone";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -445,6 +455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = StayInFront/StayInFront.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -452,8 +463,11 @@
 				DEVELOPMENT_TEAM = VZBG2DMPDR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StayInFront/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires camera";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires microphone";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

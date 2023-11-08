@@ -11,7 +11,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     
-
+    @IBOutlet weak var stayInFrontMenu: NSMenuItem!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -25,6 +25,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
-
+    @IBAction func menuClicked(_ sender: NSMenuItem) {
+        sender.state = sender.state == .on ? .off : .on
+        NotificationCenter.default.post(name: .init("StayInFront"), object: nil)
+    }
 }
 
