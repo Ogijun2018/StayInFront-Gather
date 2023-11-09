@@ -4,8 +4,12 @@
 </p>
 
 <p align="center">
-  Gather - Stay in Front is a macOS app that keeps Gather town pinned to the forefront.<br />
-  Gather townの画面を最前面に固定することができるmacOS用のアプリです。
+  <p align="center">
+    Gather - Stay in Front is a macOS app that keeps Gather town pinned to the forefront.
+  </p>
+  <p align="center">
+    Gather townの画面を最前面に固定することができるmacOS用のアプリです。
+  </p>
 
   <p align="center">
     <img width="500px" src="https://github.com/Ogijun2018/StayInFront-Gather/assets/39939005/bba60aac-0c87-4c13-a842-9a7320bee9ad"><br />
@@ -28,8 +32,8 @@
   4. Clicking the "Stay in Front" toggle on the Window tab of the application allows you to choose weather or not to display the application in the forefront.<br />
   <br />
   <h2>使い方</h2>
-  1. Releaseタブでdmgファイルをダウンロードします。
-  2. 中にあるGather - Stay in Front.appをアプリケーションフォルダに移動します。
-  3. アプリを起動すると、Gatherのログイン画面が表示されます。起動した時点ですでにウィンドウは最前面に固定されています。
-  4. Windowメニューにある「Stay in Front」をクリックすると、最前面に固定するかどうかを変更することができます。
+  1. Releaseタブでdmgファイルをダウンロードします。<br />
+  2. 中にあるGather - Stay in Front.appをアプリケーションフォルダに移動します。<br />
+  3. アプリを起動すると、Gatherのログイン画面が表示されます。起動した時点ですでにウィンドウは最前面に固定されています。<br />
+  4. Windowメニューにある「Stay in Front」をクリックすると、最前面に固定するかどうかを変更することができます。<br />
 </p>
