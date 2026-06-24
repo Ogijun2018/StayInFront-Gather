@@ -16,3 +16,7 @@ build/*
 xcuserdata
 profile
 *.moved-aside
+
+# Distribution / build artifacts
+*.app/
+*.dmg
