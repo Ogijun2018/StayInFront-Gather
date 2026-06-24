@@ -20,7 +20,36 @@ class WindowController: NSWindowController {
         }
 
         // MARK: setting webView
-        let webView = WKWebView(frame: self.window!.contentView!.bounds)
+        // 日本語入力(IME)の変換確定Returnが、Web側に「Enter」として漏れて
+        // チャットが意図せず送信される問題への対処。
+        // WebKitでは compositionend の後に keydown(Enter, isComposing:false) が
+        // 漏れて飛ぶため、変換確定中だけでなく「確定直後のEnter」もキャプチャ段階で
+        // 握りつぶし、ページの送信ハンドラに届かないようにする。
+        let imeGuardScript = WKUserScript(
+            source: """
+            (function () {
+                var confirmedAt = 0;
+                document.addEventListener('compositionend', function () {
+                    confirmedAt = Date.now();
+                }, true);
+                document.addEventListener('keydown', function (e) {
+                    if (e.key !== 'Enter') { return; }
+                    // 変換確定中、またはSafari/WebKitが確定直後に漏らすEnterは送信させない
+                    if (e.isComposing || e.keyCode === 229 || Date.now() - confirmedAt < 50) {
+                        e.stopPropagation();
+                        e.stopImmediatePropagation();
+                        confirmedAt = 0; // 確定Enterは一度だけ握りつぶす
+                    }
+                }, true);
+            })();
+            """,
+            injectionTime: .atDocumentStart,
+            forMainFrameOnly: false
+        )
+        let configuration = WKWebViewConfiguration()
+        configuration.userContentController.addUserScript(imeGuardScript)
+
+        let webView = WKWebView(frame: self.window!.contentView!.bounds, configuration: configuration)
         webView.autoresizingMask = [.width, .height]
         // gather townのWeb版は現在Chromeまたはfirefoxのみで動作する（Safariは推奨環境ではないが動作する）
         // それ以外のブラウザでアクセスすると使用できないため、UserAgentを書き換えてSafariとして認識させる
