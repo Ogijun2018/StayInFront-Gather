@@ -111,3 +111,25 @@ extension WindowController: WKNavigationDelegate, WKUIDelegate {
   }
 }
 
+// MARK: - カメラ/マイクの許諾
+extension WindowController {
+
+  /// getUserMedia に対する許諾要求。
+  /// このデリゲートを実装しないと、WebKitが独自の許諾ダイアログを毎回表示し、
+  /// その結果はアプリの再起動やページ再読み込みをまたいで保持されない。
+  /// Gatherからの要求はアプリ側で常に許可し、許諾の記録をmacOSのプライバシー設定に
+  /// 一本化することで、システムのダイアログに一度答えれば以降は何も表示されなくなる。
+  func webView(_ webView: WKWebView,
+               requestMediaCapturePermissionFor origin: WKSecurityOrigin,
+               initiatedByFrame frame: WKFrameInfo,
+               type: WKMediaCaptureType,
+               decisionHandler: @escaping (WKPermissionDecision) -> Void) {
+    // スペース内に埋め込まれた外部サイトなど、Gather以外からの要求はユーザーに委ねる
+    guard isGatherHost(origin.host) else {
+      decisionHandler(.prompt)
+      return
+    }
+    decisionHandler(.grant)
+  }
+}
+
